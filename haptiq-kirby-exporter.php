@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WordPress to Kirby Exporter
- * Plugin URI: https://haptiq.studio/
+ * Plugin URI: https://github.com/florianziegler/haptiq-kirby-exporter
  * Description: Export posts and attachments into folders and text files.
  * Version: 0.0.1
  * Author: Florian Ziegler
@@ -50,7 +50,7 @@ function haptiq_kirby_exporter_page() {
 		<p>It will copy all images/files which are attached to a post into the post's folder and for each file add a meta data file (eg. <code>{filename.jpg}.txt</code>) containing alt and caption.</p>
 		<p>Finally it will add a file with the pattern <code>YYYYMMDD_{post-slug}.txt</code> containing the post title, publication date, content and tags.</p>
 		<p>All WordPress short codes will be removed.</p>
-		<p><strong>No other changes will be made!</strong> If you need to replace anything else, eg. HTML tags with markdown, please have a look at the code and extend as needed.</p>
+		<p><strong>No other changes will be made!</strong> If you need to replace anything else, eg. HTML tags with markdown, please have a <a href="https://github.com/florianziegler/haptiq-kirby-exporter">look at the code</a> and extend as needed.</p>
 		<?php wp_nonce_field( 'run_kirby_exporter', 'kirby_exporter_nonce' ); ?>
 		<?php submit_button( 'Run Kirby Export' ); ?>
 	</form>
