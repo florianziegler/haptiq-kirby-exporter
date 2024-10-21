@@ -3,7 +3,7 @@
  * Plugin Name: WordPress to Kirby Exporter
  * Plugin URI: https://github.com/florianziegler/haptiq-kirby-exporter
  * Description: Export posts and attachments into folders and text files.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Florian Ziegler
  * Author URI: https://florianziegler.com/
  * License: GNU General Public License 2.0+
@@ -74,7 +74,12 @@ function kirby_exporter_page() {
  */
 function kirby_exporter_run() {
 	// Check nonce
-	if ( ! isset( $_POST['kirby_exporter_nonce'] ) || ! wp_verify_nonce( $_POST['kirby_exporter_nonce'], 'run_kirby_exporter' ) ) {
+	if ( ! isset( $_POST['kirby_exporter_nonce'] ) ) {
+		return;
+	} 
+
+	// Verify nonce
+	if ( ! wp_verify_nonce( $_POST['kirby_exporter_nonce'], 'run_kirby_exporter' ) ) {
 		echo '<div id="message" class="notice notice-error"><p>🚫 ' . __( 'You are not allowed to do that.', 'haptiq-kirby-exporter' ) . '</p></div>';
 		return false;
 	}
